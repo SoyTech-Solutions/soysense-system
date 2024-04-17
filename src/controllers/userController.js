@@ -2,12 +2,11 @@ var userModel = require('../models/userModel');
 
 function login(req,res){
     var usuario = req.body.usuario;
-    var tipoUsuario = req.body.tipoUsuario;
     var senha = req.body.senha;
 
 
     // exemplo se estiver errado
-    if(usuario != 'jean'){
+    if(usuario != 'admin'){
         res.render('login', {
              error: 'Credenciais incorretas. Por favor, tente novamente.' 
             });
@@ -16,7 +15,7 @@ function login(req,res){
 
     // continua se tiver certo..
     res.render('dashboard', {
-        usuario: 'bem vindo ao dashboard.' 
+        usuario: `bem vindo ao dashboard ${usuario}` 
     });
 }
 
