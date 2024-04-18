@@ -17,19 +17,49 @@
             <div class="row">
                 <div class="col">
                     <label>Usuário:</label>
-                    <input name="usuario" type="text" required>
+                    <input name="usuario" type="text" id="input_CPF" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <label>Senha:</label>
-                    <input name="senha" type="password" required>
+                    <input name="senha" type="password" id="input_senha" required>
                 </div>
             </div>
             <div class="row">
-                <button type="submit">Entrar</button>
+                <button onclick="chkLogin()" type="submit">Entrar</button>
             </div>
         </form>
     </div>
 </body>
 </html>
+
+<script>
+    function chkLogin()
+    {
+        const cpf = input_CPF.value; //Se for número, .length não funciona
+        const senha = input_senha.value;
+    
+        if(cpf.length != 11 || isNaN(cpf))
+        {
+            alert("Insira um CPF válido");
+        }
+        else if(cpf != 12345678901) //cpf mockado apenas para validação. Se quiserem vamos
+        {                            //mudar isso depois.
+            alert("CPF não cadastrado");                    
+        }
+        else if(senha.length < 5)
+        {
+            alert("Senha inválida (necessita mais do que 4 caracteres)");
+        }
+        else if(senha != "teste123") //Senha mockada também, apenas para validação
+        {
+            alert("Senha incorreta");
+        }
+        else
+        {
+            alert("Cadastro realizado com sucesso!");
+        }
+    
+    }
+</script>
