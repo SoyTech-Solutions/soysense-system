@@ -1,278 +1,84 @@
-header{
-    height: 75px;
-    border-top-width: 3px;
+/* cor do corpo do site */
+body{ 
+    background-color: #dddddd;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-header > .header-border{
-    height: 3px;
-    background: rgb(75,175,71);
-    background: linear-gradient(90deg, rgba(75,175,71,1) 26%, rgba(197,206,56,1) 100%);
-}
-.header-wrap{
+/* linhas */
+.row{ 
     display: flex;
     flex-direction: row;
-    height: 100%;
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
-    justify-content: space-between;
-    align-items: center;
 }
-.header-wrap > .logo-container{
+/* colunas */
+.col{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 250px;
-    height: 100%;
+    flex-direction: column;
 }
-.header-wrap > .logo-container > a > img{
-    height: 30px;
+/* caixa/card/container de login */
+.login-box{
+    height: 280px;
+    width: 400px;
+    background-color: #FFF;
+    border-radius: 5px;
+    box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.178);
+    font-family: 'Manrope', Arial, Helvetica, sans-serif;
+}
+/* pegando o h1 da caixa do login */
+.login-box > h1{
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #1877F2;
+    text-align: center;
+    margin-top: 20px;
+    font-family: 'Roboto condensed', Arial, Helvetica, sans-serif;
+}
+/* dando margem para a segunda linha (enésimo filho) */
+.row:nth-child(1){
+    margin-bottom: 10px;
+} 
+/* mudando a largura das colunas dentro da linha */
+.row > .col{
+    width: 100%;
+}
+
+/* mudando dois elementos input e select ao mesmo tempo */
+.login-box input{
+    width: 100%;
+    height: 35px;
+    border-radius: 2px;
+}
+/* estilos para o input */
+.login-box input{
+    border: 1px solid rgba(0, 0, 0, 0.267);
+    padding-left: 5px;
+}
+/* mudando os estilos quando o input estiver clicado */
+.login-box input:focus{
+    outline: none;
+    border: 2px solid #1877F2;
+}
+/* etiqueta, label que contem a descrição do input */
+.login-box label{
+    margin-bottom: 5px;
+}
+/* estilos do botão */
+.login-box button{
+    width: 100%;
+    height: 40px;
+    border: none;
+    margin-top: 15px;
+    background-color: #1877F2;
+    color: #FFF;
     cursor: pointer;
-    user-select: none;
-}
-.upper-nav{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 40px;
-    gap: 15px;
-}
-.contact-card{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-family: "Manrope", sans-serif;
-    gap: 10px
-}
-.contact-card img{
-    height: 30px;
-}
-.contact-card span{
-    font-size: 10px;
-    color: rgb(97, 97, 97);
-}
-.contact-card p{
-    font-size: 12px;
-    font-weight: bold;
-    color: rgb(41, 41, 41);
-}
-.contact-line{
-    width: 1px;
-    height: 50px;
-    background-color: rgb(219, 219, 219);
-}
-
-/*  ripped-paper */
-article {
-    background: white;
-    width: 100%;
-    position: relative;
-    user-select: none;
-}
-article::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    height: 55px;
-    width: 100%;
-    left: 0;
-    background: url('../img/ripped-paper.svg') bottom;
-    background-size: 40%;
-    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.13));
-}
-
-/* ================== navbar style ================ */
-.nav-bar{
-    position: relative;
-    z-index: 2;
-    height: 40px;
-    width: 100%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-.nav-list{
-    display: flex;
-    flex-direction: row;
-    gap: 45px;
-    list-style: none;
-}
-.nav-link{
-    text-decoration: none;
-    font-family: "Manrope", sans-serif;
-    font-size: 12px;
     font-weight: bolder;
-    color: #868686;
-    transition: 0.3s;
-}
-.on{
-    color: black;
-    font-weight: 800;
-}
-.nav-link:hover{
-    color: black;
-}
-
-/* =============== main content ================ */
-.main-servicos{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.main-content-servicos{
-    /* background-color: blue; */
-    width: 90%;
-    margin-top: 400px;
-}
-.main-title{
-    font-family: 'Covered by Your Grace', Arial, Helvetica, sans-serif;
-    margin-bottom: 15px;
-    color: #EEC044;
-    text-align: center;
-}
-.main-subtitle{
-    font-family: 'Manrope', sans-serif;
-    text-align: center;
-    font-size: 55px;
-}
-.card-info-wrap{
-    height: 40px;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 50px;
-}
-.card-monitoramento{
-    background-image: url(../img/servicos/img-monitoramento.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #DFDFDF;
-    width: 230px;
-    height: 370px;
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.384);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 2%;
-}
-.card-dados{
-    background-image: url(../img/servicos/img-dados.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #DFDFDF;
-    width: 230px;
-    height: 370px;
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.384);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 2%;
-}
-.card-gestao{
-    background-image: url(../img/servicos/img-gestao.webp);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #DFDFDF;
-    width: 230px;
-    height: 370px;
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.384);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 2%;
-}
-.card-armazenamento{
-    background-image: url(../img/servicos/img-armazenamento.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #DFDFDF;
-    width: 230px;
-    height: 370px;
-    border-radius: 5px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.384);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 2%;
-}
-.card-title{
-    background-color: #DFDFDF;
-    border-radius: 15px;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-bottom: 10%;
-}
-.card-title > h2{
-    font-family: 'Manrope', sans-serif;
-    font-size: 20px;
-    font-weight: 900;
-    text-align: center;
-}
-.inspira{
-    width: 100%;
-    height: 530px;
-    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.74), rgba(0, 0, 0, 0.74)),
-    url('../img/servicos/background-inspira.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: 500px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-}
-.inspira-title{
-    background-color: #087204;
-    color: #DFDFDF;
-    font-family: 'Manrope', sans-serif;
-    padding-left: 30%;
-    padding-right: 30%;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    transition: 0.2s all;
     border-radius: 5px;
 }
-.inspira-content{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+/* alterar a cor de fundo quando o mouser ficar em cima do botão */
+.login-box button:hover{
+    background-color:#1253a8;
 }
-.inspira h1{
-    font-family: 'Manrope', sans-serif;
-    color: #DFDFDF;
-    font-size: 60px;
-}
-.btn-inspira{
-    border-radius: 100%;
-    background-color: #DFDFDF;
-    cursor: pointer;
-    padding: 30px;
-    margin-left: 5%;
-    font-size: 40px;
-    transition-duration: 0.2s;
-}
-.btn-inspira:hover{
-    background-color: black;
-    color: #DFDFDF;
-}
-.card-title .img-trator{
-    height: 70px;
-    width: 70px;
-    margin-top: 10px;
-    border-radius: 5px;
-    
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-/* ----------------------- */
