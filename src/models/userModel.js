@@ -6,7 +6,7 @@ function autenticarLogin(email, senha) {
     console.log("User Model accessed > function autenticarLogin");
 
     var sqlCommand = `
-        SELECT idUsuario FROM usuario WHERE email = '${email}' AND senha = '${senha}';
+        SELECT * FROM usuario;
     `;
     console.log("Running SQL command: \n" + sqlCommand);
 

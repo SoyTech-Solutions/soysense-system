@@ -41,4 +41,7 @@ try{
 }catch(e){
     console.log(`\x1b[31mError initializing the server\x1b[0m\n${e}`) 
 }
-// ====================================
+// ====================================]]
+
+// var database = require('./src/configs/database/connection');
+
