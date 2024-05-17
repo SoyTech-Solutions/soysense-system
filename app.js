@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 
 // ======== DEFINIÇÃO DE SESSÃO ========
 app.use(session({
-    secret: 'sptech',
+    secret: 'sptech', // chave """"""""""""""""""secreta""""""""""""""""""" pra evitar cross scripting
     resave: false,
     saveUninitialized: true
 }));

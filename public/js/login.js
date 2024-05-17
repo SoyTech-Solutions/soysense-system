@@ -1,10 +1,10 @@
 const formLogin = document.querySelector('#form_login');
 
 formLogin.addEventListener('submit',(event)=>{
-    event.preventDefault();
+    event.preventDefault(); // não permit que haja o submit
 
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
+    let emailVar = document.querySelector('#email_input').value
+    let senhaVar = document.querySelector('#senha_input').value;
 
     if (emailVar == "" || senhaVar == "") {
         alert('campos vazios')
@@ -24,7 +24,6 @@ formLogin.addEventListener('submit',(event)=>{
             senhaServer: senhaVar
         })
     }).then(function (resposta) {
-        console.log("ESTOU NO THEN DO entrar()!")
 
         if (resposta.ok) {
             console.log(resposta);
