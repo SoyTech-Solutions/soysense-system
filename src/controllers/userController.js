@@ -3,21 +3,19 @@ var userModel = require('../models/userModel');
 function login(req,res){
     var email = req.body.email;
     var senha = req.body.senha;
+    
+    userModel.autenticarLogin(email,senha).then((resultadoQuery)=>{
+            console.log(resultadoQuery.success);
+            if(resultadoQuery.success){
+                req.session.authenticated = true;
+                req.session.userId = resultadoQuery.userId
+                res.redirect(`/dashboard?userId=${resultadoQuery.userId}`);
+            }else{
+                res.render('login', {error : 'acessa certo mano'})
+            }
 
-    console.log(userModel.autenticarLogin(email,senha));
-
-
-    // // exemplo se estiver errado
-    // if(usuario != 'admin'){
-    //     res.render('login', {
-    //          error: 'Credenciais incorretas. Por favor, tente novamente.' 
-    //         });
-    //     return;
-    // }
-    // continua se tiver certo..
-    // res.render('dashboard', {
-    //     usuario: `bem vindo ao dashboard ${usuario}` 
-    // });
+        }
+    );
     
 }
 

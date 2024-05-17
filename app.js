@@ -1,8 +1,9 @@
 
 // ======= MODULOES GERENCIADORES =======
 const path = require('path'); // 
-const cors = require('cors');
+const cors = require('cors'); 
 require('dotenv').config()  // requisitando o acesso á variáveis de ambiente
+const session = require('express-session'); // utilizando os módulos de sessões 
 
 // ========= EXPRESS SETUP ==============
 const express = require('express'); // requisitando o acesso ao framework express
@@ -22,10 +23,21 @@ app.set('views', path.join(__dirname, 'src', 'views'));// Define o diretório on
 app.use(cors()); // permitindo requisições HTTP -> CROSS ORIGIN RESOURCES SHARING
 // =====================================
 
-// ======= DEFINIÇÃO DE ROTAS ==========
-var indexRouter = require("./src/routes");
 
-app.use("/", indexRouter);
+// ======== DEFINIÇÃO DE SESSÃO ========
+app.use(session({
+    secret: 'sptech',
+    resave: false,
+    saveUninitialized: true
+}));
+// =====================================
+
+// ======= DEFINIÇÃO DE ROTAS ==========
+var indexRouter = require("./src/routes/index");
+var dashboardRouter = require("./src/routes/dashboard");
+
+app.use('/', indexRouter);
+app.use('/dashboard', dashboardRouter);
 // =====================================
 
 // ========= ABRINDO SERVIDOR ==========
