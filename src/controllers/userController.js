@@ -26,9 +26,11 @@ function login(req,res){
     userModel.autenticarLogin(email,senha).then((resultadoQuery)=>{
             console.log(resultadoQuery.success);
             if(resultadoQuery.success){
-                console.log('logado com sucesso')
+                req.session.authenticated = true;
+                req.session.userId = resultadoQuery.userId
+                res.redirect('/dashboard')
             }else{
-                res.render('login', {error : 'Usuário ou senha inválida. Tente novamente!'})
+                res.redirect('/')
             }
 
         }

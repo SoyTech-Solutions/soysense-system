@@ -21,6 +21,15 @@ app.use(express.static( // permite arquivos estáticos como CSS, JS, Imagens, de
 app.set('view engine', 'ejs');// Configura o Express para usar o mecanismo de template ejs
 app.set('views', path.join(__dirname, 'src', 'views'));// Define o diretório onde estão os arquivos de visualização (views) usando template EJS 
 app.use(cors()); // permitindo requisições HTTP -> CROSS ORIGIN RESOURCES SHARING
+
+// Middleware para passar mensagens de erro das sessions server para session client para as views
+app.use((req, res, next) => {
+    if (req.session && req.session.error) {
+      res.locals.error = req.session.error;
+      delete req.session.error;
+    }
+    next();
+  });
 // =====================================
 
 

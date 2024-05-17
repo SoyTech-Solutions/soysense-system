@@ -4,7 +4,7 @@ var userController = require("../controllers/userController");
 
 // Rota raiz dentro do grupo /
 router.get('/', function(req, res) {
-    res.render('login', { error: null });
+    res.render('login');
 });
 
 router.post('/', function(req,res){

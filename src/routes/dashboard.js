@@ -7,8 +7,7 @@ router.get('/', function(req, res) {
         const userId = req.query.userId; 
         res.render('dashboard', { userId: userId }); // Defina o valor de userId conforme necessário
     }else{
-        // invador pilantra safado 
-        res.render('login', {error : 'tentando acessar seu pilantra, faz o login fi'})
+        res.redirect('/');
     }
 });
 module.exports = router;
