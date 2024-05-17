@@ -6,21 +6,22 @@
     <title>SoySense System | Login</title>
     <link rel="stylesheet" href="./css/global.style.css">
     <link rel="stylesheet" href="./css/login.style.css">
+    <script src="./js/login.js" defer></script>
 </head>
 <body> 
     <div class="login-box">
         <h1>Login</h1>
-        <form action="/" method="POST">
+        <form id="form_login">
             <div class="row">
                 <div class="col">
                     <label>Email:</label>
-                    <input name="email" type="text" id="input_CPF" required>
+                    <input name="email" type="text" id="email_input" required>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <label>Senha:</label>
-                    <input name="senha" type="password" id="input_senha" required>
+                    <input name="senha" type="password" id="senha_input" required>
                 </div>
             </div>
             <div class="row">
@@ -29,7 +30,6 @@
         </form>
     </div>
     <script>
-        
     </script>
 </body>
 </html>
