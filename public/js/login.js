@@ -6,10 +6,15 @@ formLogin.addEventListener('submit',(event)=>{
     let emailVar = document.querySelector('#email_input').value
     let senhaVar = document.querySelector('#senha_input').value;
 
+
+    let erro = '';
+
     if (emailVar == "" || senhaVar == "") {
-        alert('campos vazios')
+        erro = 'Preencha todos os campos!'
+        mostrarErro(erro);
         return false;
     }
+
 
     console.log("FORM USUÁRIO: ", emailVar);
     console.log("FORM SENHA: ", senhaVar);
@@ -38,7 +43,8 @@ formLogin.addEventListener('submit',(event)=>{
                         window.location = "/dashboard";
                     }, 1000); // apenas para exibir o loading
                 }else{
-                    alert('credenciais incorreta')
+                    erro = 'Email ou Senha inválida. Tente novamente!'
+                    mostrarErro(erro);
                 }
 
 
@@ -55,3 +61,23 @@ formLogin.addEventListener('submit',(event)=>{
 
     return false;
 })
+
+function mostrarErro(erro){
+    // coloca os erros no modal se houver erro=
+    var modalErro = document.querySelector('#modalErro');
+    modalErro.style.display = 'flex'; // ativa o modal
+
+    var mensagemErro = document.querySelector('#modal_erros');
+
+    console.log(mensagemErro);
+    mensagemErro.innerHTML = `<p style="color: red; text-align: center" >${erro}</p>`;
+    console.log(erro)
+
+    modalErro.addEventListener('click', ()=>{
+        modalErro.style.display = 'none'
+    })
+
+    setTimeout(function () {
+        modalErro.style.display = 'none';
+    }, 3000); // espera 3 segundos para tirar o modal da tela
+}
